@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Tina’s Exclusive Secret</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { background:#0f0f0f; color:#eee; font-family:Arial, sans-serif; }
+a { color:#ff4da6; text-decoration:none; }
+a:hover { color:#ff1f8f; }
+header { background:#1b0033; padding:50px 20px; text-align:center; }
+.nav-tabs .nav-link.active { background:#ff4da6; color:#fff; }
+section { padding:50px 20px; }
+.card { background:#1c1c1c; border:1px solid #333; border-radius:10px; }
+button { background:#ff4da6; border:none; color:#fff; padding:10px 20px; border-radius:6px; }
+button:hover { background:#ff1f8f; cursor:pointer; }
+.blurred { filter: blur(12px); }
+.modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:9999; overflow:auto; }
+.modal-content { background:#1e1e1e; margin:5% auto; padding:25px; width:90%; max-width:520px; border-radius:10px; }
+input, textarea, select { background:#2a2a2a; color:#fff; border:none; padding:8px; border-radius:6px; width:100%; margin-bottom:10px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Ms Tina’s Exclusive Secret</h1>
+<p>18+ Only • Free Previews • Premium Videos • Services • Crypto Payment</p>
+</header>
+
+<!-- Tabs Navigation -->
+<ul class="nav nav-tabs justify-content-center" id="mainTabs">
+  <li class="nav-item"><a class="nav-link active" onclick="openTab('freeVideos')">Free Videos</a></li>
+  <li class="nav-item"><a class="nav-link" onclick="openTab('premiumVideos')">Premium Videos</a></li>
+  <li class="nav-item"><a class="nav-link" onclick="openTab('services')">Services</a></li>
+  <li class="nav-item"><a class="nav-link" onclick="openTab('shop')">Shop</a></li>
+</ul>
+
+<!-- Free Videos Section -->
+<section id="freeVideos">
+<h2 class="text-center mb-4">Free Video Previews</h2>
+<div class="row g-3 justify-content-center">
+  <div class="col-md-4">
+    <video class="w-100 rounded" controls poster="https://via.placeholder.com/400x250?text=Free+Video+1">
+      <source src="https://your-free-video-link.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+    <p class="text-center mt-2">Teaser 1</p>
+  </div>
+  <div class="col-md-4">
+    <video class="w-100 rounded" controls poster="https://via.placeholder.com/400x250?text=Free+Video+2">
+      <source src="https://your-free-video-link.mp4" type="video/mp4">
+    </video>
+    <p class="text-center mt-2">Teaser 2</p>
+  </div>
+</div>
+</section>
+
+<!-- Premium Videos Section -->
+<section id="premiumVideos" style="display:none">
+<h2 class="text-center mb-4">Premium Videos</h2>
+<div class="row g-3 justify-content-center">
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <img src="https://via.placeholder.com/400x250?text=Premium+1" class="w-100 rounded blurred" alt="Premium 1">
+      <p class="mt-2">Premium Video 1</p>
+      <button onclick="unlockVideo('Premium Video 1')">Unlock Video</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <img src="https://via.placeholder.com/400x250?text=Premium+2" class="w-100 rounded blurred" alt="Premium 2">
+      <p class="mt-2">Premium Video 2</p>
+      <button onclick="unlockVideo('Premium Video 2')">Unlock Video</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Services Section -->
+<section id="services" style="display:none">
+<h2 class="text-center mb-4">Services</h2>
+<div class="row g-3">
+
+<!-- Massage -->
+<div class="col-md-4">
+  <div class="card p-3 text-center">
+    <h4>Relaxation Massage</h4>
+    <p>60 min - $80</p>
+    <button onclick="openBooking('Relaxation Massage',80)">Book</button>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card p-3 text-center">
+    <h4>Deep Tissue Massage</h4>
+    <p>60 min - $100</p>
+    <button onclick="openBooking('Deep Tissue Massage',100)">Book</button>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card p-3 text-center">
+    <h4>Hot Stone Massage</h4>
+    <p>90 min - $140</p>
+    <button onclick="openBooking('Hot Stone Massage',140)">Book</button>
+  </div>
+</div>
+
+<!-- Companion -->
+<div class="col-md-4">
+  <div class="card p-3 text-center">
+    <h4>Private Meetup</h4>
+    <p>1 hr - $200</p>
+    <button onclick="openBooking('Private Meetup',200)">Book</button>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card p-3 text-center">
+    <h4>Dinner Date</h4>
+    <p>3 hr - $400</p>
+    <button onclick="openBooking('Dinner Date',400)">Book</button>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- Shop Section -->
+<section id="shop" style="display:none">
+<h2 class="text-center mb-4">Shop</h2>
+<div class="row g-3 justify-content-center">
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <h4>Personal Massager</h4>
+      <p>$45</p>
+      <button onclick="openBooking('Personal Massager',45)">Buy</button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 text-center">
+      <h4>Intimate Toy</h4>
+      <p>$70</p>
+      <button onclick="openBooking('Intimate Toy',70)">Buy</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Booking / Premium Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content" id="modalBody">
+    <h3 id="modalTitle"></h3>
+    <div id="modalContent"></div>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<footer class="text-center p-3">
+<p>18+ Only • Manual Confirmation after Payment</p>
+</footer>
+
+<script>
+function openTab(tabId){
+  document.querySelectorAll('section').forEach(s=>s.style.display='none');
+  document.getElementById(tabId).style.display='block';
+  document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function openBooking(name,price){
+  const modal=document.getElementById('modal');
+  document.getElementById('modalTitle').innerText=name;
+  document.getElementById('modalContent').innerHTML=`
+    <input placeholder="Full Name">
+    <input placeholder="Email">
+    <input type="date">
+    <input type="time">
+    <textarea placeholder="Notes"></textarea>
+    <h4>Total: $${price}</h4>
+    <button onclick="showPayment('${name}',${price})">Proceed to Payment</button>
+  `;
+  modal.style.display='block';
+}
+
+function unlockVideo(name){
+  const modal=document.getElementById('modal');
+  document.getElementById('modalTitle').innerText=name;
+  document.getElementById('modalContent').innerHTML=`
+    <p>This content is private. 18+ only. Do not share. New videos uploaded twice a week.</p>
+    <button onclick="showPayment('${name}',0)">Continue</button>
+  `;
+  modal.style.display='block';
+}
+
+function showPayment(name,price){
+  const modal=document.getElementById('modal');
+  document.getElementById('modalTitle').innerText='Crypto Payment';
+  document.getElementById('modalContent').innerHTML=`
+    <p><strong>Service/Video:</strong> ${name}</p>
+    <p><strong>Total:</strong> $${price}</p>
+    <hr>
+    <p><strong>BTC Wallet:</strong><br><code>1PY4hkC9CcZ7dB4YWz6EpikhxQMfV3u9Bs</code></p>
+    <p>After payment, click the button below to access content on Telegram.</p>
+    <button onclick="redirectTelegram()">I Have Paid</button>
+  `;
+}
+
+function redirectTelegram(){
+  window.open('https://t.me/yourchannel', '_blank');
+}
+
+function closeModal(){
+  document.getElementById('modal').style.display='none';
+}
+</script>
+
+</body>
+</html>
