@@ -208,10 +208,31 @@ function redirectTelegram(){
   window.open('https://t.me/yourchannel', '_blank');
 }
 
-function closeModal(){
-  document.getElementById('modal').style.display='none';
+<script>
+function paymentSent(){
+  document.getElementById("modalBody").innerHTML = `
+    <h3>Payment Pending Confirmation</h3>
+    <p>Your payment request has been submitted.</p>
+
+    <p><strong>Important:</strong></p>
+    <ul>
+      <li>Crypto payments are confirmed manually</li>
+      <li>Do NOT refresh or resend payment</li>
+      <li>Telegram access is sent ONLY after confirmation</li>
+    </ul>
+
+    <p class="mt-3">
+      Please contact us with your <strong>TX Hash</strong> for verification.
+    </p>
+
+    <p><strong>Contact:</strong></p>
+    <p>Email or Telegram username you control</p>
+
+    <button onclick="closeBooking()" class="mt-3">Close</button>
+  `;
 }
 </script>
+
 
 </body>
 </html>
